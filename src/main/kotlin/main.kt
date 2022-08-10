@@ -1,8 +1,15 @@
-val type1 = "Maestro"
-val type2 = "MasterCard"
-val type3 = "VISA"
-val type4 = "Мир"
-val type5 = "VK Pay"
+const val type1 = "Maestro"
+const val type2 = "MasterCard"
+const val type3 = "VISA"
+const val type4 = "Мир"
+const val type5 = "VK Pay"
+const val maxType1 = 75000_00
+const val fixType1 = 20_00
+const val commissionType1 = 0.006
+const val fixType3 = 35_00
+const val commissionType3 = 0.0075
+const val commissionType5 = 0
+
 
 fun main(args: Array<String>) {
     calcPay(1000000)
@@ -21,14 +28,6 @@ fun calcPay(amountNow: Int, cardType: String = type5, amountMonth: Int = 0) {
 }
 
 fun calcCommission(cardType: String, amountMonth: Int, amountNow: Int): Int {
-
-    val maxType1 = 75000_00
-    val fixType1 = 20_00
-    val commissionType1 = 0.006
-    val fixType3 = 35_00
-    val commissionType3 = 0.0075
-    val commissionType5 = 0
-
     when (cardType)  {
         type1, type2 ->  { if
             ((amountMonth + amountNow) < maxType1) return 0
